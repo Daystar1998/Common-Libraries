@@ -169,21 +169,21 @@ void StringUtils::trimStart(string &str) {
 	}
 }
 
-void StringUtils::trimEnd() {
+void StringUtils::trimEnd(string &str) {
 
-	if (!this->empty()) {
+	if (!str.empty()) {
 
 		int end;
 
-		for (end = (int)this->length() - 1; end >= 0; end--) {
+		for (end = (int)str.length() - 1; end >= 0; end--) {
 
-			if (!isWhiteSpace(this->at(end))) {
+			if (!isWhiteSpace(str.at(end))) {
 
 				break;
 			}
 		}
 
-		this->assign(this->substr(0, end + 1));
+		str.assign(str.substr(0, end + 1));
 	}
 }
 

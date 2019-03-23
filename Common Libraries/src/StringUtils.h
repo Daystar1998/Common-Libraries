@@ -28,7 +28,7 @@ public:
 
 	static void trimStart(string &str);
 
-	static void trimEnd();
+	static void trimEnd(string &str);
 
 	static void trim();
 
