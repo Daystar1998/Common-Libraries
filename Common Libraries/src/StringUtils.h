@@ -3,8 +3,10 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 using std::string;
+using std::vector;
 
 class StringUtils {
 
@@ -17,4 +19,24 @@ public:
 	static string getVariable(const string &data, int start, int &end);
 
 	static string getNextVariable(const string &data, int start, int &end);
+
+	static void prepend(const String &other);
+
+	static void toUpper();
+
+	static void toLower();
+
+	static void trimStart();
+
+	static void trimEnd();
+
+	static void trim();
+
+	static void split(const string &delimiter, vector<String> &oTokens);
+
+	static bool startsWith(const string &other);
+
+	static bool endsWith(const string &other);
+
+	static bool isWhiteSpace(char c);
 };
