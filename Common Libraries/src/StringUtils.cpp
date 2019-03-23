@@ -165,7 +165,7 @@ void StringUtils::trimStart(string &str) {
 			}
 		}
 
-		this->assign(str.substr(start, str.length() - start));
+		str.assign(str.substr(start, str.length() - start));
 	}
 }
 
