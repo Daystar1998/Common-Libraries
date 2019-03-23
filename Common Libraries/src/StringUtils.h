@@ -24,7 +24,7 @@ public:
 
 	static void toUpper(string &str);
 
-	static void toLower();
+	static void toLower(string &str);
 
 	static void trimStart();
 

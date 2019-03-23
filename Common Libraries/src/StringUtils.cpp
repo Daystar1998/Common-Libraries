@@ -125,27 +125,27 @@ void StringUtils::toUpper(string &str) {
 	}
 }
 
-void StringUtils::toLower() {
+void StringUtils::toLower(string &str) {
 
-	if (!this->empty()) {
+	if (!str.empty()) {
 
-		size_t length = this->length();
+		size_t length = str.length();
 		char *result = new char[length + 1];
 
 		for (size_t i = 0; i < length; i++) {
 
-			if (this->at(i) >= 65 && this->at(i) <= 90) {
+			if (str.at(i) >= 65 && str.at(i) <= 90) {
 
-				result[i] = this->at(i) + 32;
+				result[i] = str.at(i) + 32;
 			} else {
 
-				result[i] = this->at(i);
+				result[i] = str.at(i);
 			}
 		}
 
 		result[length] = '\0';
 
-		this->assign(result);
+		str.assign(result);
 
 		delete[] result;
 	}
