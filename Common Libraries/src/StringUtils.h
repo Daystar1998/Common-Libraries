@@ -22,7 +22,7 @@ public:
 
 	static void prepend(string &str, const string &other);
 
-	static void toUpper();
+	static void toUpper(string &str);
 
 	static void toLower();
 

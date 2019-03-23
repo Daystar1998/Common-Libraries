@@ -94,32 +94,32 @@ void StringUtils::prepend(string &str, const string &other) {
 
 	string result(other);
 
-	result.append(*this);
+	result.append(str);
 
-	str->assign(result);
+	str.assign(result);
 }
 
-void StringUtils::toUpper() {
+void StringUtils::toUpper(string &str) {
 
-	if (!this->empty()) {
+	if (!str.empty()) {
 
-		size_t length = this->length();
+		size_t length = str.length();
 		char *result = new char[length + 1];
 
 		for (size_t i = 0; i < length; i++) {
 
-			if (this->at(i) >= 97 && this->at(i) <= 122) {
+			if (str.at(i) >= 97 && str.at(i) <= 122) {
 
-				result[i] = this->at(i) - 32;
+				result[i] = str.at(i) - 32;
 			} else {
 
-				result[i] = this->at(i);
+				result[i] = str.at(i);
 			}
 		}
 
 		result[length] = '\0';
 
-		this->assign(result);
+		str.assign(result);
 
 		delete[] result;
 	}
