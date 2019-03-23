@@ -32,7 +32,7 @@ public:
 
 	static void trim(string &str);
 
-	static void split(const string &delimiter, vector<String> &oTokens);
+	static void split(string &str, const string &delimiter, vector<string> &oTokens);
 
 	static bool startsWith(const string &other);
 

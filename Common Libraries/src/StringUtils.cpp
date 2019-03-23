@@ -193,19 +193,19 @@ void StringUtils::trim(string &str) {
 	trimEnd(str);
 }
 
-void StringUtils::split(const string &delimiter, vector<String> &oTokens) {
+void StringUtils::split(string &str, const string &delimiter, vector<string> &oTokens) {
 
 	size_t start = 0;
 	size_t end = 0;
 
-	start = this->find_first_not_of(delimiter, end);
+	start = str.find_first_not_of(delimiter, end);
 
 	while (start != -1) {
 
-		end = this->find(delimiter, start);
-		oTokens.push_back(this->substr(start, end - start));
+		end = str.find(delimiter, start);
+		oTokens.push_back(str.substr(start, end - start));
 
-		start = this->find_first_not_of(delimiter, end);
+		start = str.find_first_not_of(delimiter, end);
 	}
 }
 
