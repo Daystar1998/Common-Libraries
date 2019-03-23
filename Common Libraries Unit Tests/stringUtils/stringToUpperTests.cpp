@@ -1,77 +1,81 @@
-#include "stdafx.h"
+#include "../stdafx.h"
 #include "CppUnitTest.h"
 
-#include "../String/src/String.h"
+#include "../../Common Libraries/src/StringUtils.h"
+
+#include <string>
+
+using std::string;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace StringUnitTests {
+namespace StringUtilsUnitTests {
 
-	TEST_CLASS(ToUpperTests) {
+	TEST_CLASS(StringUtilsToUpperTests) {
 
 public:
 
-	TEST_METHOD(StringToUpper) {
+	TEST_METHOD(ToUpperAllLower) {
 
-		String s = String("This is an example string");
+		string s = string("This is an example string");
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String("THIS IS AN EXAMPLE STRING")));
+		Assert::AreEqual(s, string("THIS IS AN EXAMPLE STRING"));
 	}
 
-	TEST_METHOD(StringEmptyToUpper) {
+	TEST_METHOD(EmptyToUpper) {
 
-		String s = String();
+		string s = string();
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String()));
+		Assert::AreEqual(s, string());
 	}
 
-	TEST_METHOD(StringToUpperWithNumbersOnEnds) {
+	TEST_METHOD(ToUpperWithNumbersOnEnds) {
 
-		String s = String("1This is an example string1");
+		string s = string("1This is an example string1");
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String("1THIS IS AN EXAMPLE STRING1")));
+		Assert::AreEqual(s, string("1THIS IS AN EXAMPLE STRING1"));
 	}
 
-	TEST_METHOD(StringToUpperWithNumberInMiddle) {
+	TEST_METHOD(ToUpperWithNumberInMiddle) {
 
-		String s = String("This is an 1example string");
+		string s = string("This is an 1example string");
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String("THIS IS AN 1EXAMPLE STRING")));
+		Assert::AreEqual(s, string("THIS IS AN 1EXAMPLE STRING"));
 	}
 
-	TEST_METHOD(StringToUpperWithSymbolsOnEnds) {
+	TEST_METHOD(ToUpperWithSymbolsOnEnds) {
 
-		String s = String("!@#$%^&*()This is an example string!@#$%^&*()");
+		string s = string("!@#$%^&*()This is an example string!@#$%^&*()");
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String("!@#$%^&*()THIS IS AN EXAMPLE STRING!@#$%^&*()")));
+		Assert::AreEqual(s, string("!@#$%^&*()THIS IS AN EXAMPLE STRING!@#$%^&*()"));
 	}
 
-	TEST_METHOD(StringToUpperWithSymbolsInMiddle) {
+	TEST_METHOD(ToUpperWithSymbolsInMiddle) {
 
-		String s = String("This is an !@#$%^&*()example string");
+		string s = string("This is an !@#$%^&*()example string");
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String("THIS IS AN !@#$%^&*()EXAMPLE STRING")));
+		Assert::AreEqual(s, string("THIS IS AN !@#$%^&*()EXAMPLE STRING"));
 	}
 
-	TEST_METHOD(StringToUpperAlreadyUppercase) {
+	TEST_METHOD(ToUpperAlreadyUppercase) {
 
-		String s = String("THIS IS AN EXAMPLE STRING");
+		string s = string("THIS IS AN EXAMPLE STRING");
 
-		s.toUpper();
+		StringUtils::toUpper(s);
 
-		Assert::IsTrue(s.equals(String("THIS IS AN EXAMPLE STRING")));
+		Assert::AreEqual(s, string("THIS IS AN EXAMPLE STRING"));
 	}
 	};
 }
