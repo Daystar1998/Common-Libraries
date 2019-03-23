@@ -1,134 +1,138 @@
-#include "stdafx.h"
+#include "../stdafx.h"
 #include "CppUnitTest.h"
 
-#include "../String/src/String.h"
+#include "../../Common Libraries/src/StringUtils.h"
+
+#include <string>
+
+using std::string;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace StringUnitTests {
+namespace StringUtilsUnitTests {
 
-	TEST_CLASS(PrependTests) {
+	TEST_CLASS(StringUtilsPrependTests) {
 
 public:
 
-	TEST_METHOD(StringPrependStringToEmpty) {
+	TEST_METHOD(PrependStringToEmpty) {
 
-		String s = String();
+		string s = string();
 
-		s.prepend(String("Test"));
+		StringUtils::prepend(s, string("Test"));
 
-		Assert::IsTrue(s.equals(String("Test")));
+		Assert::AreEqual(s, string("Test"));
 	}
 
 	TEST_METHOD(StringPrependCharPointerToEmpty) {
 
-		String s = String();
+		string s = string();
 
-		s.prepend("Test");
+		StringUtils::prepend(s, "Test");
 
-		Assert::IsTrue(s.equals(String("Test")));
+		Assert::AreEqual(s, string("Test"));
 	}
 
 	TEST_METHOD(StringPrependCharToEmpty) {
 
-		String s = String();
+		string s = string();
 
-		s.prepend('t');
+		StringUtils::prepend(s, 't');
 
-		Assert::IsTrue(s.equals(String('t')));
+		Assert::AreEqual(s, string("t"));
 	}
 
 	TEST_METHOD(StringPrependIntToEmpty) {
 
-		String s = String();
+		string s = string();
 
-		s.prepend(100);
+		StringUtils::prepend(s, 100);
 
-		Assert::IsTrue(s.equals(String("100")));
+		Assert::AreEqual(s, string("100"));
 	}
 
 	TEST_METHOD(StringPrependEmptyToEmpty) {
 
-		String s = String();
+		string s = string();
 
-		s.prepend(String());
+		StringUtils::prepend(s, string());
 
-		Assert::IsTrue(s.equals(String()));
+		Assert::AreEqual(s, string());
 	}
 
 	TEST_METHOD(StringPrependStringToString) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend(String("Test"));
+		StringUtils::prepend(s, string("Test"));
 
-		Assert::IsTrue(s.equals(String("TestOriginal")));
+		Assert::AreEqual(s, string("TestOriginal"));
 	}
 
 	TEST_METHOD(StringPrependCharPointerToString) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend("Test");
+		StringUtils::prepend(s, "Test");
 
-		Assert::IsTrue(s.equals(String("TestOriginal")));
+		Assert::AreEqual(s, string("TestOriginal"));
 	}
 
 	TEST_METHOD(StringPrependCharToString) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend('t');
+		StringUtils::prepend(s, 't');
 
-		Assert::IsTrue(s.equals(String("tOriginal")));
+		Assert::AreEqual(s, string("tOriginal"));
 	}
 
 	TEST_METHOD(StringPrependIntToString) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend(100);
+		StringUtils::prepend(s, 100);
 
-		Assert::IsTrue(s.equals(String("100Original")));
+		Assert::AreEqual(s, string("100Original"));
 	}
 
 	TEST_METHOD(StringPrependEmptyToString) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend(String());
+		StringUtils::prepend(s, string());
 
-		Assert::IsTrue(s.equals(String("Original")));
+		Assert::AreEqual(s, string("Original"));
 	}
 
 	TEST_METHOD(StringPrependThis) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend(s);
+		StringUtils::prepend(s, s);
 
-		Assert::IsTrue(s.equals(String("OriginalOriginal")));
+		Assert::AreEqual(s, string("OriginalOriginal"));
 	}
 
 	TEST_METHOD(StringPrependNull) {
 
-		String s = String("Original");
+		string s = string("Original");
 
-		s.prepend(nullptr);
+		StringUtils::prepend(s, nullptr);
 
-		Assert::IsTrue(s.equals(String("Original")));
+		Assert::AreEqual(s, string("Original"));
 	}
 
 	TEST_METHOD(StringPrependNullPointer) {
 
-		String s1 = String("Original");
+		string s1 = string("Original");
 
-		String *s2 = nullptr;
+		string *s2 = nullptr;
 
 #pragma warning(suppress: 6011)
-		s1.prepend(*s2);
+		StringUtils::prepend(s1, *s2);
 
-		Assert::IsTrue(s1.equals(String("Original")));
+		Assert::AreEqual(s1, string("Original"));
 	}
 	};
 }
