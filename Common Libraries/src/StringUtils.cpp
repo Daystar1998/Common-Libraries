@@ -242,11 +242,11 @@ bool StringUtils::startsWith(string &str, const string &other) {
 	return result;
 }
 
-bool StringUtils::endsWith(const string &other) {
+bool StringUtils::endsWith(string &str, const string &other) {
 
 	bool result = false;
 
-	if (this->length() >= other.length()) {
+	if (str.length() >= other.length()) {
 
 		size_t j = this->length() - 1;
 
@@ -254,7 +254,7 @@ bool StringUtils::endsWith(const string &other) {
 
 		for (int i = (int)other.length() - 1; i >= 0; i--) {
 
-			if (other[i] == this->at(j)) {
+			if (other[i] == str.at(j)) {
 
 				matching = true;
 			} else {

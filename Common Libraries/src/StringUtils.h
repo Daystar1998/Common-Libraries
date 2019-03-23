@@ -36,7 +36,7 @@ public:
 
 	static bool startsWith(string &str, const string &other);
 
-	static bool endsWith(const string &other);
+	static bool endsWith(string &str, const string &other);
 
 	static bool isWhiteSpace(char c);
 };
