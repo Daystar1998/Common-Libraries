@@ -57,7 +57,7 @@ public:
 
 		StringUtils::trimEnd(s);
 
-		Assert::AreEqual(s, string("					This is an example string")));
+		Assert::AreEqual(s, string("					This is an example string"));
 	}
 
 	TEST_METHOD(TrimEndCarriageReturnAtBeginning) {
