@@ -187,10 +187,10 @@ void StringUtils::trimEnd(string &str) {
 	}
 }
 
-void StringUtils::trim() {
+void StringUtils::trim(string &str) {
 
-	this->trimStart();
-	this->trimEnd();
+	trimStart(str);
+	trimEnd(str);
 }
 
 void StringUtils::split(const string &delimiter, vector<String> &oTokens) {

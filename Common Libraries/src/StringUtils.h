@@ -30,7 +30,7 @@ public:
 
 	static void trimEnd(string &str);
 
-	static void trim();
+	static void trim(string &str);
 
 	static void split(const string &delimiter, vector<String> &oTokens);
 
