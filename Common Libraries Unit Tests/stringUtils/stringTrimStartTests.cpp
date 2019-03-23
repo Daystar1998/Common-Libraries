@@ -1,176 +1,180 @@
-#include "stdafx.h"
+#include "../stdafx.h"
 #include "CppUnitTest.h"
 
-#include "../String/src/String.h"
+#include "../../Common Libraries/src/StringUtils.h"
+
+#include <string>
+
+using std::string;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace StringUnitTests {
+namespace StringUtilsUnitTests {
 
-	TEST_CLASS(TrimStartTests) {
+	TEST_CLASS(StringUtilsTrimStartTests) {
 
 public:
 
-	TEST_METHOD(StringTrimStartNoWhitespace) {
+	TEST_METHOD(TrimStartNoWhitespace) {
 
-		String s = String("This is an example string");
+		string s = string("This is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartOneSpaceAtBeginning) {
+	TEST_METHOD(TrimStartOneSpaceAtBeginning) {
 
-		String s = String(" This is an example string");
+		string s = string(" This is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartFiveSpacesAtBeginning) {
+	TEST_METHOD(TrimStartFiveSpacesAtBeginning) {
 
-		String s = String("     This is an example string");
+		string s = string("     This is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartOneTabAtBeginning) {
+	TEST_METHOD(TrimStartOneTabAtBeginning) {
 
-		String s = String("	This is an example string");
+		string s = string("	This is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartFiveTabsAtBeginning) {
+	TEST_METHOD(TrimStartFiveTabsAtBeginning) {
 
-		String s = String("					This is an example string");
+		string s = string("					This is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartCarriageReturnAtBeginning) {
+	TEST_METHOD(TrimStartCarriageReturnAtBeginning) {
 
-		String s = String("\rThis is an example string");
+		string s = string("\rThis is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartVerticalTabAtBeginning) {
+	TEST_METHOD(TrimStartVerticalTabAtBeginning) {
 
-		String s = String("\vThis is an example string");
+		string s = string("\vThis is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartMultipleTypesWhitespaceAtBeginning) {
+	TEST_METHOD(TrimStartMultipleTypesWhitespaceAtBeginning) {
 
-		String s = String("\v\r\t  This is an example string");
+		string s = string("\v\r\t  This is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string")));
+		Assert::AreEqual(s, string("This is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartCharacterBeforeSpaceAtBeginning) {
+	TEST_METHOD(TrimStartCharacterBeforeSpaceAtBeginning) {
 
-		String s = String("T his is an example string");
+		string s = string("T his is an example string");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("T his is an example string")));
+		Assert::AreEqual(s, string("T his is an example string"));
 	}
 
-	TEST_METHOD(StringTrimStartOneSpaceAtEnd) {
+	TEST_METHOD(TrimStartOneSpaceAtEnd) {
 
-		String s = String("This is an example string ");
+		string s = string("This is an example string ");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string ")));
+		Assert::AreEqual(s, string("This is an example string "));
 	}
 
-	TEST_METHOD(StringTrimStartFiveSpacesAtEnd) {
+	TEST_METHOD(TrimStartFiveSpacesAtEnd) {
 
-		String s = String("This is an example string     ");
+		string s = string("This is an example string     ");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string     ")));
+		Assert::AreEqual(s, string("This is an example string     "));
 	}
 
-	TEST_METHOD(StringTrimStartOneTabAtEnd) {
+	TEST_METHOD(TrimStartOneTabAtEnd) {
 
-		String s = String("This is an example string	");
+		string s = string("This is an example string	");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string	")));
+		Assert::AreEqual(s, string("This is an example string	"));
 	}
 
-	TEST_METHOD(StringTrimStartFiveTabsAtEnd) {
+	TEST_METHOD(TrimStartFiveTabsAtEnd) {
 
-		String s = String("This is an example string					");
+		string s = string("This is an example string					");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string					")));
+		Assert::AreEqual(s, string("This is an example string					"));
 	}
 
-	TEST_METHOD(StringTrimStartCarriageReturnAtEnd) {
+	TEST_METHOD(TrimStartCarriageReturnAtEnd) {
 
-		String s = String("This is an example string\r");
+		string s = string("This is an example string\r");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string\r")));
+		Assert::AreEqual(s, string("This is an example string\r"));
 	}
 
-	TEST_METHOD(StringTrimStartVerticalTabAtEnd) {
+	TEST_METHOD(TrimStartVerticalTabAtEnd) {
 
-		String s = String("This is an example string\v");
+		string s = string("This is an example string\v");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string\v")));
+		Assert::AreEqual(s, string("This is an example string\v"));
 	}
 
-	TEST_METHOD(StringTrimStartMultipleTypesWhitespaceAtEnd) {
+	TEST_METHOD(TrimStartMultipleTypesWhitespaceAtEnd) {
 
-		String s = String("This is an example string\v\r\t  ");
+		string s = string("This is an example string\v\r\t  ");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String("This is an example string\v\r\t  ")));
+		Assert::AreEqual(s, string("This is an example string\v\r\t  "));
 	}
 
-	TEST_METHOD(StringTrimStartEmpty) {
+	TEST_METHOD(TrimStartEmpty) {
 
-		String s = String();
+		string s = string();
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String()));
+		Assert::AreEqual(s, string());
 	}
 
-	TEST_METHOD(StringTrimStartOnlyWhitespace) {
+	TEST_METHOD(TrimStartOnlyWhitespace) {
 
-		String s = String("\r\t\v ");
+		string s = string("\r\t\v ");
 
-		s.trimStart();
+		StringUtils::trimStart(s);
 
-		Assert::IsTrue(s.equals(String()));
+		Assert::AreEqual(s, string());
 	}
 	};
 }
