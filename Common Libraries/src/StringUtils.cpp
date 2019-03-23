@@ -90,13 +90,13 @@ string StringUtils::getNextVariable(const string &data, int start, int &end) {
 	return result;
 }
 
-void StringUtils::prepend(const String &other) {
+void StringUtils::prepend(string &str, const string &other) {
 
-	String result(other);
+	string result(other);
 
 	result.append(*this);
 
-	this->assign(result);
+	str->assign(result);
 }
 
 void StringUtils::toUpper() {

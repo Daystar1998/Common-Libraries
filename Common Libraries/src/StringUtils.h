@@ -20,7 +20,7 @@ public:
 
 	static string getNextVariable(const string &data, int start, int &end);
 
-	static void prepend(const String &other);
+	static void prepend(string &str, const string &other);
 
 	static void toUpper();
 
