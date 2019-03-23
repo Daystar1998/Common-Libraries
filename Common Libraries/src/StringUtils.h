@@ -26,7 +26,7 @@ public:
 
 	static void toLower(string &str);
 
-	static void trimStart();
+	static void trimStart(string &str);
 
 	static void trimEnd();
 

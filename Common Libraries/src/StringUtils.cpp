@@ -151,21 +151,21 @@ void StringUtils::toLower(string &str) {
 	}
 }
 
-void StringUtils::trimStart() {
+void StringUtils::trimStart(string &str) {
 
-	if (!this->empty()) {
+	if (!str.empty()) {
 
 		int start;
 
-		for (start = 0; start < this->length(); start++) {
+		for (start = 0; start < str.length(); start++) {
 
-			if (!isWhiteSpace(this->at(start))) {
+			if (!isWhiteSpace(str.at(start))) {
 
 				break;
 			}
 		}
 
-		this->assign(this->substr(start, this->length() - start));
+		this->assign(str.substr(start, str.length() - start));
 	}
 }
 
