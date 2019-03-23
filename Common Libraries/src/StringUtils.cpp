@@ -248,7 +248,7 @@ bool StringUtils::endsWith(string &str, const string &other) {
 
 	if (str.length() >= other.length()) {
 
-		size_t j = this->length() - 1;
+		size_t j = str.length() - 1;
 
 		bool matching = false;
 
