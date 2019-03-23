@@ -209,11 +209,11 @@ void StringUtils::split(string &str, const string &delimiter, vector<string> &oT
 	}
 }
 
-bool StringUtils::startsWith(const string &other) {
+bool StringUtils::startsWith(string &str, const string &other) {
 
 	bool result = false;
 
-	if (this->length() >= other.length()) {
+	if (str.length() >= other.length()) {
 
 		size_t j = 0;
 
@@ -221,7 +221,7 @@ bool StringUtils::startsWith(const string &other) {
 
 		for (int i = 0; i < other.length(); i++) {
 
-			if (other[i] == this->at(j)) {
+			if (other[i] == str.at(j)) {
 
 				matching = true;
 			} else {

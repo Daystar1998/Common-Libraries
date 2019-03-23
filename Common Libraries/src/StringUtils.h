@@ -34,7 +34,7 @@ public:
 
 	static void split(string &str, const string &delimiter, vector<string> &oTokens);
 
-	static bool startsWith(const string &other);
+	static bool startsWith(string &str, const string &other);
 
 	static bool endsWith(const string &other);
 
