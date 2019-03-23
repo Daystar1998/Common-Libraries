@@ -1,77 +1,81 @@
-#include "stdafx.h"
+#include "../stdafx.h"
 #include "CppUnitTest.h"
 
-#include "../String/src/String.h"
+#include "../../Common Libraries/src/StringUtils.h"
+
+#include <string>
+
+using std::string;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace StringUnitTests {
+namespace StringUtilsUnitTests {
 
-	TEST_CLASS(ToLowerTests) {
+	TEST_CLASS(StringUtilsToLowerTests) {
 
 public:
 
-	TEST_METHOD(StringToLower) {
+	TEST_METHOD(ToLowerAllCaps) {
 
-		String s = String("THIS IS AN EXAMPLE STRING");
+		string s = string("THIS IS AN EXAMPLE STRING");
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String("this is an example string")));
+		Assert::AreEqual(s, string("this is an example string"));
 	}
 
-	TEST_METHOD(StringEmptyToLower) {
+	TEST_METHOD(EmptyToLower) {
 
-		String s = String();
+		string s = string();
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String()));
+		Assert::AreEqual(s, string());
 	}
 
-	TEST_METHOD(StringToLowerWithNumbersOnEnds) {
+	TEST_METHOD(ToLowerWithNumbersOnEnds) {
 
-		String s = String("1THIS IS AN EXAMPLE STRING1");
+		string s = string("1THIS IS AN EXAMPLE STRING1");
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String("1this is an example string1")));
+		Assert::AreEqual(s, string("1this is an example string1"));
 	}
 
-	TEST_METHOD(StringToLowerWithNumberInMiddle) {
+	TEST_METHOD(ToLowerWithNumberInMiddle) {
 
-		String s = String("THIS IS AN 1EXAMPLE STRING");
+		string s = string("THIS IS AN 1EXAMPLE STRING");
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String("this is an 1example string")));
+		Assert::AreEqual(s, string("this is an 1example string"));
 	}
 
-	TEST_METHOD(StringToLowerWithSymbolsOnEnds) {
+	TEST_METHOD(ToLowerWithSymbolsOnEnds) {
 
-		String s = String("!@#$%^&*()THIS IS AN EXAMPLE STRING!@#$%^&*()");
+		string s = string("!@#$%^&*()THIS IS AN EXAMPLE STRING!@#$%^&*()");
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String("!@#$%^&*()this is an example string!@#$%^&*()")));
+		Assert::AreEqual(s, string("!@#$%^&*()this is an example string!@#$%^&*()"));
 	}
 
-	TEST_METHOD(StringToLowerWithSymbolsInMiddle) {
+	TEST_METHOD(ToLowerWithSymbolsInMiddle) {
 
-		String s = String("THIS IS AN !@#$%^&*()EXAMPLE STRING");
+		string s = string("THIS IS AN !@#$%^&*()EXAMPLE STRING");
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String("this is an !@#$%^&*()example string")));
+		Assert::AreEqual(s, string("this is an !@#$%^&*()example string"));
 	}
 
-	TEST_METHOD(StringToLowerAlreadyLowercase) {
+	TEST_METHOD(ToLowerAlreadyLowercase) {
 
-		String s = String("this is an example string");
+		string s = string("this is an example string");
 
-		s.toLower();
+		StringUtils::toLower(s);
 
-		Assert::IsTrue(s.equals(String("this is an example string")));
+		Assert::AreEqual(s, string("this is an example string"));
 	}
 	};
 }
