@@ -20,7 +20,7 @@ public:
 
 	static string getNextVariable(const string &data, int start, int &end);
 
-	static void prepend(string &str, const string &other);
+	static void prepend(string &lValue, const string &rValue);
 
 	static void toUpper(string &str);
 
@@ -34,9 +34,9 @@ public:
 
 	static void split(string &str, const string &delimiter, vector<string> &oTokens);
 
-	static bool startsWith(string &str, const string &other);
+	static bool startsWith(string &lValue, const string &rValue);
 
-	static bool endsWith(string &str, const string &other);
+	static bool endsWith(string &lValue, const string &rValue);
 
 	static bool isWhiteSpace(char c);
 };

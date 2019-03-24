@@ -90,13 +90,13 @@ string StringUtils::getNextVariable(const string &data, int start, int &end) {
 	return result;
 }
 
-void StringUtils::prepend(string &str, const string &other) {
+void StringUtils::prepend(string &lValue, const string &other) {
 
 	string result(other);
 
-	result.append(str);
+	result.append(lValue);
 
-	str.assign(result);
+	lValue.assign(result);
 }
 
 void StringUtils::toUpper(string &str) {
@@ -209,19 +209,19 @@ void StringUtils::split(string &str, const string &delimiter, vector<string> &oT
 	}
 }
 
-bool StringUtils::startsWith(string &str, const string &other) {
+bool StringUtils::startsWith(string &lValue, const string &rValue) {
 
 	bool result = false;
 
-	if (str.length() >= other.length()) {
+	if (lValue.length() >= rValue.length()) {
 
 		size_t j = 0;
 
 		bool matching = false;
 
-		for (int i = 0; i < other.length(); i++) {
+		for (int i = 0; i < rValue.length(); i++) {
 
-			if (other[i] == str.at(j)) {
+			if (rValue[i] == lValue.at(j)) {
 
 				matching = true;
 			} else {
@@ -242,19 +242,19 @@ bool StringUtils::startsWith(string &str, const string &other) {
 	return result;
 }
 
-bool StringUtils::endsWith(string &str, const string &other) {
+bool StringUtils::endsWith(string &lValue, const string &rValue) {
 
 	bool result = false;
 
-	if (str.length() >= other.length()) {
+	if (lValue.length() >= rValue.length()) {
 
-		size_t j = str.length() - 1;
+		size_t j = lValue.length() - 1;
 
 		bool matching = false;
 
-		for (int i = (int)other.length() - 1; i >= 0; i--) {
+		for (int i = (int)rValue.length() - 1; i >= 0; i--) {
 
-			if (other[i] == str.at(j)) {
+			if (rValue[i] == lValue.at(j)) {
 
 				matching = true;
 			} else {
